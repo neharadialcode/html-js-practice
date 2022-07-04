@@ -21,71 +21,43 @@
 <body class="">
     <div class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
         <div class="container">
-            <div class="w-100">
-                <div class="row justify-content-center">
-                    <div class="col-xxl-4 col-xl-5 col-lg-10 col-sm-8 col-12 border_radius shadoww">
-                        <input type="text" placeholder="write here" id="result" />
+            <section class="min-vh-100 d-flex flex-column justify-content-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <div class=" shadow-lg p-3 accordion br_10">
+                                <div class="p-3 border br_10" id="accordian_main">
+                                    <h4>
+                                        Voluptatum excepturi similique perferendis consectetur
+                                        accusamus vero
+                                    </h4>
 
-                        <div class="select_container position-relative one mt-2">
-                            <select class="w-100 select" name="" id="color">
-                                <option disabled selected value="">Select color</option>
-                                <option value="red">red</option>
-                                <option value="blue">blue</option>
-                                <option value="green">green</option>
-                                <option value="brown">brown</option>
-                            </select>
-                        </div>
-                        <div class="select_container position-relative mt-2">
-                            <select class="w-100 select" name="" id="fontSize">
-                                <option disabled selected value="">Select font size</option>
-                                <option value="20px">20</option>
-                                <option value="22px">22</option>
-                                <option value="30px">30</option>
-                                <option value="50px">50</option>
-                            </select>
-                        </div>
-                        <div class="select_container position-relative mt-2">
-                            <select class="w-100 select" name="" id="alignment">
-                                <option disabled selected value="">Select alignment</option>
-                                <option value="center">center</option>
-                                <option value="start">start</option>
-                                <option value="end">end</option>
-                            </select>
-                        </div>
-                        <div class="select_container position-relative mt-2">
-                            <select class="w-100 select" name="" id="fontFamily">
-                                <option disabled selected value="">Select font family</option>
-                                <option value="'Roboto', sans-serif">roboto</option>
-                                <option value="'Mr Dafoe', cursive">Mr Dafoe</option>
-                                <option value="'Bubblegum Sans', cursive">
-                                    Bubblegum Sans
-                                </option>
-                                <option value="'Poppins', sans-serif">poppins</option>
-                            </select>
-                        </div>
-                        <div class="select_container position-relative mt-2">
-                            <select class="w-100 select" name="" id="textDecoration">
-                                <option disabled selected value="">
-                                    Select text decoration
-                                </option>
-                                <option value="underline">underline</option>
-                                <option value="line-through">line-through</option>
-                                <option value="overline">overline</option>
-                                <option value="underline overline">underline overline</option>
-                            </select>
-                        </div>
-                        <div class="select_container position-relative mt-2">
-                            <select class="w-100 select" name="" id="fontWeight">
-                                <option disabled selected value="">Select font weight</option>
-                                <option value="400">normal</option>
-                                <option value="500">medium</option>
-                                <option value="600">semibold</option>
-                                <option value="700">bold</option>
-                            </select>
+                                    <div class=" d-none" id="accordian_child">
+                                        <h6>
+                                            Voluptatum excepturi similique perferendis consectetur
+                                            accusamus vero
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shadow-lg p-3 accordion br_10 mt-2">
+                                <div class="p-3 border br_10" id="accordian_main2">
+                                    <h4>
+                                        Voluptatum excepturi similique perferendis
+                                    </h4>
+
+                                    <div class=" d-none" id="accordian_child2">
+                                        <h6>
+                                            Voluptatum excepturi similique perferendis consectetur
+                                            accusamus vero
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -95,48 +67,17 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
-        const colorr = document.getElementById("color");
-        const fontSize = document.getElementById("fontSize");
-        const alignment = document.getElementById("alignment");
-        const fontFamily = document.getElementById("fontFamily");
-        const textDecoration = document.getElementById("textDecoration");
-        const fontWeight = document.getElementById("fontWeight");
-        const result = document.getElementById("result");
-        colorr.addEventListener("change", function () {
-            const selectedColor = colorr.value;
-            if (result !== "") {
-                result.style.color = selectedColor;
-            }
+        const getAccordianItem = document.querySelector("#accordian_main");
+        const accordianChild = document.querySelector("#accordian_child");
+        const getAccordianItem2 = document.querySelector("#accordian_main2");
+        const accordianChild2 = document.querySelector("#accordian_child2");
+
+        getAccordianItem.addEventListener("click", function () {
+            console.log(accordianChild.classList);
+            accordianChild.classList.toggle("d-none");
         });
-        fontSize.addEventListener("change", function () {
-            const selectedfontSize = fontSize.value;
-            if (result !== "") {
-                result.style.fontSize = selectedfontSize;
-            }
-        });
-        alignment.addEventListener("change", function () {
-            const selectedalignment = alignment.value;
-            if (result !== "") {
-                result.style.textAlign = selectedalignment;
-            }
-        });
-        fontFamily.addEventListener("change", function () {
-            const selectedfontFamily = fontFamily.value;
-            if (result !== "") {
-                result.style.fontFamily = selectedfontFamily;
-            }
-        });
-        textDecoration.addEventListener("change", function () {
-            const selectedtextDecoration = textDecoration.value;
-            if (result !== "") {
-                result.style.textDecoration = selectedtextDecoration;
-            }
-        });
-        fontWeight.addEventListener("change", function () {
-            const selectedfontWeight = fontWeight.value;
-            if (result !== "") {
-                result.style.fontWeight = selectedfontWeight;
-            }
+        getAccordianItem2.addEventListener("click", function () {
+            accordianChild2.classList.toggle("d-none");
         });
     </script>
 </body>

@@ -141,3 +141,13 @@ span {
 .animate::after {
   transform: rotate(180deg) translateY(50%);
 }
+
+.accordion {
+  background-color: pink;
+  color: blue;
+  font-family: poppins;
+}
+
+.br_10 {
+  border-radius: 10px;
+}
