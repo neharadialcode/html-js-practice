@@ -1,0 +1,143 @@
+.focus_none:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.card_custom {
+  min-width: 400px;
+  background-color: aqua;
+  padding: 5% 3%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn_red {
+  background-color: red;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 700;
+  width: 100%;
+}
+
+.btn_green {
+  background-color: green;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 700;
+  width: 100%;
+}
+
+p {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.card_box {
+  box-shadow: 0px 11px 44px -10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 2%;
+}
+
+#number {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #FAFAFA;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 60px;
+  max-height: 50px;
+  max-width: 20%;
+  margin: 5px;
+  padding: 10px;
+  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  color: white;
+  border-radius: 5px;
+  font-size: 35px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.height-100px {
+  height: 100px;
+}
+
+.bg-light-pink {
+  background-color: pink;
+}
+
+.fs-20 {
+  font-size: 20px !important;
+}
+
+.fs-30 {
+  font-size: 30px !important;
+}
+
+.box {
+  border: 2px solid blue;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.select {
+  border: 1px solid black;
+  padding: 10px 12px;
+  border-radius: 5px;
+  appearance: none;
+}
+
+.select_container {
+  position: relative;
+}
+
+.select_container::after {
+  content: '';
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: rotate(0deg) translateY(-50%);
+  height: 20px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/25/25623.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: right;
+  width: 20px;
+}
+
+.shadoww {
+  box-shadow: 0px 11px 44px -10px rgba(0, 0, 0, 0.25);
+}
+
+.border_radius {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+.animate::after {
+  transform: rotate(180deg) translateY(50%);
+}
