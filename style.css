@@ -177,6 +177,10 @@ span {
 
 }
 
+input:focus {
+  outline: none !important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
