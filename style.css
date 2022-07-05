@@ -152,11 +152,40 @@ span {
   border-radius: 10px;
 }
 
+.br_50 {
+  border-radius: 50%;
+}
+
 /*========================== SIDEBAR CSS ==========================*/
-.open_sidebar {
+.btn_sidebar {
   background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
   color: white;
   border: 0px solid transparent;
   border-radius: 10px;
   padding: 10px 30px;
+}
+
+.sidebar {
+  /* position: absolute; */
+  /* left: -250px; */
+  width: 250px;
+  padding: 40px 30px;
+  height: 100vh;
+  box-shadow: 9px 4px 26px 0px rgba(0, 0, 0, 0.06);
+  background-color: palegoldenrod;
+  border-radius: 0 20px 20px 0;
+
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width:575.98px) {
+  /* .sidebar {
+    position: absolute;
+    left: -100vw;
+    width: 100vw;
+    border-radius: 0;
+  } */
 }

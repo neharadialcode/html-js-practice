@@ -16,13 +16,39 @@
 </head>
 
 <body>
-    <div>
-        <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="position-relative overflow-hidden d-flex">
+        <div class="sidebar">
+            <div class="">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="mb-0">
+                        Sidebar
+                    </p>
+                    <div class="cursor-pointer">
+                        <img class="br_50" width="20px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5a3VwQqDO7DMblFT1XzaOzpFx3nQDrbdvQ&usqp=CAU"
+                            alt="">
+                    </div>
+                </div>
+                <button class="btn_sidebar w-100 d-block mt-2">
+                    Link 1
+                </button>
+                <button class="btn_sidebar w-100 d-block mt-2">
+                    Link 2
+                </button>
+                <button class="btn_sidebar w-100 d-block mt-2">
+                    Link 3
+                </button>
+                <button class="btn_sidebar w-100 d-block mt-2">
+                    Link 4
+                </button>
+            </div>
+        </div>
+        <div class="container d-flex flex-column justify-content-center align-items-center vh-100 w-100">
             <h2>
                 Sidebar
             </h2>
-            <div>
-                <button class="open_sidebar"> Open Sidebar</button>
+            <div class="pt-2">
+                <button class="btn_sidebar"> Open Sidebar</button>
             </div>
         </div>
     </div>
