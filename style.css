@@ -151,3 +151,12 @@ span {
 .br_10 {
   border-radius: 10px;
 }
+
+/*========================== SIDEBAR CSS ==========================*/
+.open_sidebar {
+  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  color: white;
+  border: 0px solid transparent;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
