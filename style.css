@@ -50,7 +50,7 @@ p {
 #number {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 5px 20px;
   border-radius: 5px;
 }
@@ -73,7 +73,7 @@ span {
   max-width: 20%;
   margin: 5px;
   padding: 10px;
-  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
   color: white;
   border-radius: 5px;
   font-size: 35px;
@@ -115,13 +115,13 @@ span {
 }
 
 .select_container::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 4%;
   top: 50%;
   transform: rotate(0deg) translateY(-50%);
   height: 20px;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/25/25623.png');
+  background-image: url("https://cdn-icons-png.flaticon.com/512/25/25623.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: right;
@@ -137,7 +137,6 @@ span {
   padding: 20px;
 }
 
-
 .animate::after {
   transform: rotate(180deg) translateY(50%);
 }
@@ -146,6 +145,7 @@ span {
   background-color: pink;
   color: blue;
   font-family: poppins;
+  transition: all 0.5s ease;
 }
 
 .br_10 {
@@ -158,7 +158,7 @@ span {
 
 /*========================== SIDEBAR CSS ==========================*/
 .btn_sidebar {
-  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
   color: white;
   border: 0px solid transparent;
   border-radius: 10px;
@@ -174,7 +174,6 @@ span {
   box-shadow: 9px 4px 26px 0px rgba(0, 0, 0, 0.06);
   background-color: palegoldenrod;
   border-radius: 0 20px 20px 0;
-
 }
 
 input:focus {
@@ -185,11 +184,26 @@ input:focus {
   cursor: pointer;
 }
 
-@media (max-width:575.98px) {
+@media (max-width: 575.98px) {
   /* .sidebar {
     position: absolute;
     left: -100vw;
     width: 100vw;
     border-radius: 0;
   } */
+}
+
+.accordian_child {
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.active-accoridian .accordian_child {
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s ease;
+  pointer-events: all;
 }
