@@ -155,7 +155,9 @@ span {
 .br_50 {
   border-radius: 50%;
 }
-
+body {
+  margin: 0;
+}
 /*========================== SIDEBAR CSS ==========================*/
 .btn_sidebar {
   background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
@@ -166,14 +168,32 @@ span {
 }
 
 .sidebar {
-  /* position: absolute; */
-  /* left: -250px; */
+  position: fixed;
+  left: -250px;
   width: 250px;
   padding: 40px 30px;
   height: 100vh;
   box-shadow: 9px 4px 26px 0px rgba(0, 0, 0, 0.06);
   background-color: palegoldenrod;
   border-radius: 0 20px 20px 0;
+  transition: all 0.3s ease;
+}
+
+#sidebar-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.active-sidebar #sidebar-overlay {
+  width: 100%;
+}
+
+.active-sidebar .sidebar {
+  left: 0;
 }
 
 input:focus {

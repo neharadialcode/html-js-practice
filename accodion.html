@@ -118,9 +118,7 @@
       function handleAccorion(number) {
         for (let i = 0; i < accordion.length; i++) {
           if (number === i) {
-            accordion[i].classList.add("active-accoridian");
-          } else {
-            accordion[i].classList.remove("active-accoridian");
+            accordion[i].classList.toggle("active-accoridian");
           }
         }
       }
