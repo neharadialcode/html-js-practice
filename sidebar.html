@@ -36,10 +36,18 @@
               />
             </div>
           </div>
-          <button class="btn_sidebar w-100 d-block mt-2">Link 1</button>
-          <button class="btn_sidebar w-100 d-block mt-2">Link 2</button>
-          <button class="btn_sidebar w-100 d-block mt-2">Link 3</button>
-          <button class="btn_sidebar w-100 d-block mt-2">Link 4</button>
+          <button id="link_one" class="btn_sidebar w-100 d-block mt-2">
+            Link 1
+          </button>
+          <button id="link_two" class="btn_sidebar w-100 d-block mt-2">
+            Link 2
+          </button>
+          <button id="link_three" class="btn_sidebar w-100 d-block mt-2">
+            Link 3
+          </button>
+          <button id="link_four" class="btn_sidebar w-100 d-block mt-2">
+            Link 4
+          </button>
         </div>
       </div>
       <div
@@ -61,16 +69,15 @@
     ></script>
 
     <script>
-      //   const sidebarButton = document.querySelectorAll("#open-sidebar-btn");
-      //   const sidebarButton = document.querySelectorAll("#open-sidebar-btn");
-      //   const sidebarButton2 = document.getElementById("open-sidebar-btn");
-      //   console.log(sidebarButton, "sidebarButton");
-
       const body = document.getElementsByTagName("body");
       const sidebarOverlay = document.getElementById("sidebar-overlay");
       const closeSidebarBtn = document.getElementById("close-sidebar");
       const sidebarBtn = document.getElementById("open-sidebar-btn");
       const sidebar = document.getElementsByClassName("sidebar");
+      const link1 = document.getElementById("link_one");
+      const link2 = document.getElementById("link_two");
+      const link3 = document.getElementById("link_three");
+      const link4 = document.getElementById("link_four");
 
       //  FOR OPEN SIDEBAR WITH OVERLAY
       sidebarBtn.addEventListener("click", function () {
@@ -93,6 +100,33 @@
         // sidebar[0].style.left = "-250px";
         // sidebarOverlay.style.width = "0%";
       }
+
+      // SIDEBAR BG CHANGE
+
+      link1.addEventListener("click", function () {
+        sidebar[0].classList.add("bg-danger");
+        sidebar[0].classList.remove("bg-warning");
+        sidebar[0].classList.remove("bg-success");
+        sidebar[0].classList.remove("bg-primary");
+      });
+      link2.addEventListener("click", function () {
+        sidebar[0].classList.remove("bg-warning");
+        sidebar[0].classList.remove("bg-danger");
+        sidebar[0].classList.remove("bg-primary");
+        sidebar[0].classList.add("bg-success");
+      });
+      link3.addEventListener("click", function () {
+        sidebar[0].classList.add("bg-primary");
+        sidebar[0].classList.remove("bg-warning");
+        sidebar[0].classList.remove("bg-danger");
+        sidebar[0].classList.remove("bg-success");
+      });
+      link4.addEventListener("click", function () {
+        sidebar[0].classList.add("bg-warning");
+        sidebar[0].classList.remove("bg-primary");
+        sidebar[0].classList.remove("bg-danger");
+        sidebar[0].classList.remove("bg-success");
+      });
     </script>
   </body>
 </html>
