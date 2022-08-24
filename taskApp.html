@@ -59,6 +59,7 @@
       const addTaskInput = document.getElementById("add-task-input");
       const addTaskButton = document.getElementById("add-task-btn");
       const taskList = document.getElementById("task-list");
+      const deleteBtn = document.getElementById("delete_btn");
 
       addTaskInput.addEventListener("change", function () {
         console.log(addTaskInput.value, "addTaskInput");
@@ -72,6 +73,10 @@
           printTaskList(taskArray);
           addTaskInput.value = "";
         }
+      });
+      deleteBtn.addEventListener("click", function () {
+        console.log("delete", addTaskInput.value);
+        taskArray = "";
       });
 
       function printTaskList(taskArray) {
@@ -100,7 +105,7 @@
                     </g>
                   </svg>
 
-                  <svg
+                  <svg id="delete_btn"
                     class="ms-1"
                     width="24"
                     height="24"

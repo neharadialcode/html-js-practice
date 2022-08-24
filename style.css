@@ -227,3 +227,6 @@ input:focus {
   transition: all 0.5s ease;
   pointer-events: all;
 }
+.delete_btn {
+  cursor: pointer;
+}
