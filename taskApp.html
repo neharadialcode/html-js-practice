@@ -72,7 +72,7 @@
       });
 
       function printTaskList(taskArray) {
-        taskList.innerHTML += taskArray.map(
+        taskList.innerHTML = taskArray.map(
           (obj, index) => `<div
                 class="border px-3 py-3 br_10 d-flex justify-content-between align-items-center mb-3"
               >
