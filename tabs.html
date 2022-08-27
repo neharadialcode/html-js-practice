@@ -21,30 +21,47 @@
         <div class="row w-100 justify-content-center">
             <div class="col-md-6 box">
                 <div class=" d-flex pt-3">
-                    <button class="btn-dark fw-bold px-4 py-2 br_10 w-100"> Tab 1</button>
-                    <button class="btn-dark fw-bold px-4 py-2 br_10 w-100 mx-2"> Tab 2</button>
-                    <button class="btn-dark fw-bold px-4 py-2 br_10 w-100"> Tab 3</button>
+                    <button id="btn_one" class="btn-dark fw-bold px-4 py-2 br_10 w-100"> Tab 1</button>
+                    <button id="btn_two" class="btn-dark fw-bold px-4 py-2 br_10 w-100 mx-2"> Tab 2</button>
+                    <button id="btn_three" class="btn-dark fw-bold px-4 py-2 br_10 w-100"> Tab 3</button>
                 </div>
                 <div class="pt-4">
-                    <h5>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
-                        reiciendis
-                        optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
-                        numquam
-                        voluptatibus saepe voluptates.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
-                        reiciendis
-                        optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
-                        numquam
-                        voluptatibus saepe voluptates.
-                    </h5>
-                    <h5>
-                        or sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
-                        reiciendis
-                        optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
-                        numquam
-                        voluptatibus saepe voluptates.
-                    </h5>
+                    <div id="text_one">
+                        <h5>
+                            ONE
+                        </h5>
+                        <h5>
+                            or sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
+                            reiciendis
+                            optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
+                            numquam
+                            voluptatibus saepe voluptates.
+                        </h5>
+                    </div>
+                    <div id="text_two" class="d-none">
+                        <h5>
+                            TWO
+                        </h5>
+                        <h5>
+                            or sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
+                            reiciendis
+                            optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
+                            numquam
+                            voluptatibus saepe voluptates.
+                        </h5>
+                    </div>
+                    <div id="text_three" class="d-none">
+                        <h5>
+                            THREE
+                        </h5>
+                        <h5>
+                            or sit amet consectetur adipisicing elit. Tempora odit quos recusandae ad,
+                            reiciendis
+                            optio assumenda ullam sequi ex asperiores alias architecto voluptas similique itaque, sit
+                            numquam
+                            voluptatibus saepe voluptates.
+                        </h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,6 +70,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        const btnOne = document.getElementById("btn_one")
+        const btnTwo = document.getElementById("btn_two")
+        const btnThree = document.getElementById("btn_three")
+        const textOne = document.getElementById("text_one")
+        const textTwo = document.getElementById("text_two")
+        const textThree = document.getElementById("text_three")
+
+        btnOne.addEventListener("click", function () {
+            textOne.classList.remove("d-none")
+            textTwo.classList.add("d-none")
+            textThree.classList.add("d-none")
+        });
+        btnTwo.addEventListener("click", function () {
+            textOne.classList.add("d-none")
+            textTwo.classList.remove("d-none")
+            textThree.classList.add("d-none")
+        });
+        btnThree.addEventListener("click", function () {
+            textOne.classList.add("d-none")
+            textTwo.classList.add("d-none")
+            textThree.classList.remove("d-none")
+        })
     </script>
 </body>
 
