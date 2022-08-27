@@ -1,88 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="icon"
-      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
-    />
-    <title>Task App</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body>
-    <div>
-      <div class="container vh-100 d-flex flex-column justify-content-center">
-        <div class="row justify-content-center">
-          <h2 class="text-center">Task App</h2>
-          <div class="col-lg-6 border br_10 box shadow-lg mt-3">
-            <div class="d-flex w-100 border pe-1 py-1 br_10 mt-2">
-              <input
-                id="add-task-input"
-                class="w-100 border-0"
-                type="text"
-                value=""
-                placeholder="Write Here .............."
-              />
-              <button class="btn_sidebar text-nowrap" id="add-task-btn">
-                Add Task
-              </button>
-            </div>
-            <div>
-              <h4 class="py-3 mb--0">Today's Task</h4>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU" />
+  <title>Task App</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
-              <!-- TASK  ITEM  -->
-              <div id="task-list"></div>
-            </div>
+<body>
+  <div>
+    <div class="container vh-100 d-flex flex-column justify-content-center">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Task App</h2>
+        <div class="col-lg-6 border br_10 box shadow-lg mt-3">
+          <div class="d-flex w-100 border pe-1 py-1 br_10 mt-2">
+            <input id="add-task-input" class="w-100 border-0" type="text" value=""
+              placeholder="Write Here .............." />
+            <button class="btn_sidebar text-nowrap" id="add-task-btn">
+              Add Task
+            </button>
+          </div>
+          <div>
+            <h4 class="py-3 mb--0">Today's Task</h4>
+
+            <!-- TASK  ITEM  -->
+            <div id="task-list"></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      // function handleChange(e) {
-      //   console.log(e.target.value);
-      // }
+  <script>
+    // function handleChange(e) {
+    //   console.log(e.target.value);
+    // }
 
-      // DECLARE ARRAY VARIABLE
-      const taskArray = [];
-      const addTaskInput = document.getElementById("add-task-input");
-      const addTaskButton = document.getElementById("add-task-btn");
-      const taskList = document.getElementById("task-list");
-      const deleteBtn = document.getElementById("delete_btn");
+    // DECLARE ARRAY VARIABLE
+    const taskArray = [];
+    const addTaskInput = document.getElementById("add-task-input");
+    const addTaskButton = document.getElementById("add-task-btn");
+    const taskList = document.getElementById("task-list");
+    const deleteBtn = document.getElementById("delete_btn");
 
-      addTaskInput.addEventListener("change", function () {
-        console.log(addTaskInput.value, "addTaskInput");
-      });
+    addTaskInput.addEventListener("change", function () {});
 
-      addTaskButton.addEventListener("click", function () {
-        console.log("click", addTaskInput.value);
+    addTaskButton.addEventListener("click", function () {
+      console.log("click", addTaskInput.value);
+      if (addTaskInput.value !== "") {
+        taskArray.unshift(addTaskInput.value);
+        printTaskList(taskArray);
+        addTaskInput.value = "";
+      }
+    });
+    // deleteBtn.addEventListener("click", function () {
+    //   console.log("delete", addTaskInput.value);
+    //   taskArray = "";
+    // });
+    addTaskInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
         if (addTaskInput.value !== "") {
           taskArray.unshift(addTaskInput.value);
           console.log(taskArray, "taskArray");
           printTaskList(taskArray);
           addTaskInput.value = "";
         }
-      });
-      deleteBtn.addEventListener("click", function () {
-        console.log("delete", addTaskInput.value);
-        taskArray = "";
-      });
+      }
+    });
 
-      function printTaskList(taskArray) {
-        taskList.innerHTML = taskArray.map(
-          (obj, index) => `<div
-                class="border px-3 py-3 br_10 d-flex justify-content-between align-items-center mb-3"
+    function handleDelete(index) {
+      console.log(index, "handle delete")
+      const filteredArray = taskArray.filter((item, i) => index !== i)
+      console.log(filteredArray, "filteredArray");
+      printTaskList(filteredArray);
+    }
+
+    function printTaskList(taskArray) {
+      console.log(taskArray, "taskarray")
+      taskList.innerHTML = taskArray.map(
+        (obj, index) => `<div
+                class="border px-3 py-3 br_10 d-flex justify-content-between align-items-center mb-2"
               >
                 <h6 class="mb-0">${obj}</h6>
                 <div>
@@ -104,35 +109,26 @@
                       />
                     </g>
                   </svg>
-
-                  <svg id="delete_btn"
-                    class="ms-1"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g opacity="0.5">
-                      <path
-                        d="M5 20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V8H21V6H17V4C17 3.46957 16.7893 2.96086 16.4142 2.58579C16.0391 2.21071 15.5304 2 15 2H9C8.46957 2 7.96086 2.21071 7.58579 2.58579C7.21071 2.96086 7 3.46957 7 4V6H3V8H5V20ZM9 4H15V6H9V4ZM8 8H17V20H7V8H8Z"
-                        fill="black"
-                      />
-                      <path
-                        d="M9 10H11V18H9V10ZM13 10H15V18H13V10Z"
-                        fill="black"
-                      />
-                    </g>
-                  </svg>
+                         <span onclick="handleDelete(${index})">
+                         <svg  class="ms-1 cursor-pointer" width="24" height="24" viewBox="0 0 24 24"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <g opacity="0.5">
+                         <path
+                         d="M5 20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V8H21V6H17V4C17 3.46957 16.7893 2.96086 16.4142 2.58579C16.0391 2.21071 15.5304 2 15 2H9C8.46957 2 7.96086 2.21071 7.58579 2.58579C7.21071 2.96086 7 3.46957 7 4V6H3V8H5V20ZM9 4H15V6H9V4ZM8 8H17V20H7V8H8Z"
+                         fill="black" />
+                         <path d="M9 10H11V18H9V10ZM13 10H15V18H13V10Z" fill="black" />
+                        </g>
+                   </svg>
+                  </span>
+            
                 </div>
               </div>`
-        );
-      }
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      ).join('')
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
