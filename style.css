@@ -63,6 +63,7 @@ input {
   cursor: pointer;
 }
 
+/* 
 span {
   display: flex;
   flex-direction: column;
@@ -79,7 +80,7 @@ span {
   font-size: 35px;
   font-weight: 700;
   cursor: pointer;
-}
+} */
 
 .height-100px {
   height: 100px;
@@ -155,9 +156,11 @@ span {
 .br_50 {
   border-radius: 50%;
 }
+
 body {
   margin: 0;
 }
+
 /*========================== SIDEBAR CSS ==========================*/
 .btn_sidebar {
   background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
@@ -226,4 +229,63 @@ input:focus {
   opacity: 1;
   transition: all 0.5s ease;
   pointer-events: all;
+}
+
+.delete_btn {
+  cursor: pointer;
+}
+
+.custom_answer {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.border_gray {
+  border: 1px solid gray;
+}
+
+.blue_btn {
+  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  border-radius: 4px;
+  color: white;
+  border: 1px solid transparent;
+  padding: 10px 30px;
+  min-width: 150px;
+}
+
+.blue_btn:hover {
+  background: green;
+}
+
+.border_btn {
+  background: transparent;
+  border-radius: 4px;
+  color: #1444EF;
+  border: 1px solid transparent;
+  padding: 8px 30px;
+  min-width: 150px;
+}
+
+.border_btn:hover {
+  border: 1px solid green;
+  padding: 10px 30px;
+  color: green;
+}
+
+.gradient_border {
+  border: 3px solid;
+  border-image-source: url('./border_img.png');
+  border-image-repeat: round;
+  border-image-slice: 3;
+}
+
+@media (max-width:767.98px) {
+  .blue_btn {
+    min-width: 100%;
+  }
+
+  .border_btn {
+    min-width: 100%;
+  }
 }
