@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
+    />
+    <title>Task App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="icon"
-    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU" />
-  <title>Task App</title>
-  <link rel="stylesheet" href="./style.css" />
-</head>
+  <body>
+    <div>
+      <div class="container vh-100 d-flex flex-column justify-content-center">
+        <div class="row justify-content-center">
+          <h2 class="text-center">Task App</h2>
+          <div class="col-lg-6 border br_10 box shadow-lg mt-3">
+            <div class="d-flex w-100 border pe-1 py-1 br_10 mt-2">
+              <input
+                id="add-task-input"
+                class="w-100 border-0"
+                type="text"
+                value=""
+                placeholder="Write Here .............."
+              />
+              <button class="btn_sidebar text-nowrap" id="add-task-btn">
+                Add Task
+              </button>
+            </div>
+            <div>
+              <h4 class="py-3 mb--0">Today's Task</h4>
 
-<body>
-  <div>
-    <div class="container vh-100 d-flex flex-column justify-content-center">
-      <div class="row justify-content-center">
-        <h2 class="text-center">Task App</h2>
-        <div class="col-lg-6 border br_10 box shadow-lg mt-3">
-          <div class="d-flex w-100 border pe-1 py-1 br_10 mt-2">
-            <input id="add-task-input" class="w-100 border-0" type="text" value=""
-              placeholder="Write Here .............." />
-            <button class="btn_sidebar text-nowrap" id="add-task-btn">
-              Add Task
-            </button>
-          </div>
-          <div>
-            <h4 class="py-3 mb--0">Today's Task</h4>
-
-            <!-- TASK  ITEM  -->
-            <div id="task-list"></div>
+              <!-- TASK  ITEM  -->
+              <div id="task-list"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    // function handleChange(e) {
-    //   console.log(e.target.value);
-    // }
+    <script>
+      // function handleChange(e) {
+      //   console.log(e.target.value);
+      // }
 
-    // DECLARE ARRAY VARIABLE
-    const taskArray = [];
-    const addTaskInput = document.getElementById("add-task-input");
-    const addTaskButton = document.getElementById("add-task-btn");
-    const taskList = document.getElementById("task-list");
-    const deleteBtn = document.getElementById("delete_btn");
+      // DECLARE ARRAY VARIABLE
+      const taskArray = [];
+      const addTaskInput = document.getElementById("add-task-input");
+      const addTaskButton = document.getElementById("add-task-btn");
+      const taskList = document.getElementById("task-list");
+      const deleteBtn = document.getElementById("delete_btn");
 
-    addTaskInput.addEventListener("change", function () {});
+      addTaskInput.addEventListener("change", function () {});
 
-    addTaskButton.addEventListener("click", function () {
-      console.log("click", addTaskInput.value);
-      if (addTaskInput.value !== "") {
-        taskArray.unshift(addTaskInput.value);
-        printTaskList(taskArray);
-        addTaskInput.value = "";
-      }
-    });
-    // deleteBtn.addEventListener("click", function () {
-    //   console.log("delete", addTaskInput.value);
-    //   taskArray = "";
-    // });
-    addTaskInput.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
+      addTaskButton.addEventListener("click", function () {
+        console.log("click", addTaskInput.value);
         if (addTaskInput.value !== "") {
           taskArray.unshift(addTaskInput.value);
-          console.log(taskArray, "taskArray");
           printTaskList(taskArray);
           addTaskInput.value = "";
         }
+      });
+      // deleteBtn.addEventListener("click", function () {
+      //   console.log("delete", addTaskInput.value);
+      //   taskArray = "";
+      // });
+      addTaskInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          if (addTaskInput.value !== "") {
+            taskArray.unshift(addTaskInput.value);
+            console.log(taskArray, "taskArray");
+            printTaskList(taskArray);
+            addTaskInput.value = "";
+          }
+        }
+      });
+
+      function handleDelete(index) {
+        console.log(index, "handle delete");
+        const filteredArray = taskArray.filter((item, i) => index !== i);
+        console.log(filteredArray, "filteredArray");
+        printTaskList(filteredArray);
       }
-    });
 
-    function handleDelete(index) {
-      console.log(index, "handle delete")
-      const filteredArray = taskArray.filter((item, i) => index !== i)
-      console.log(filteredArray, "filteredArray");
-      printTaskList(filteredArray);
-    }
-
-    function printTaskList(taskArray) {
-      console.log(taskArray, "taskarray")
-      taskList.innerHTML = taskArray.map(
-        (obj, index) => `<div
+      function printTaskList(taskArray) {
+        console.log(taskArray, "taskarray");
+        taskList.innerHTML = taskArray
+          .map(
+            (obj, index) => `<div
                 class="border px-3 py-3 br_10 d-flex justify-content-between align-items-center mb-2"
               >
                 <h6 class="mb-0">${obj}</h6>
@@ -123,12 +134,14 @@
             
                 </div>
               </div>`
-      ).join('')
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
-</body>
-
+          )
+          .join("");
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

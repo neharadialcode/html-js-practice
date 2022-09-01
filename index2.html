@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Hello, world!</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon"
-    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Hello, world!</title>
-</head>
-
-<body>
-  <div class="container vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="card_custom">
-      <p class="mb-0" id="number">0</p>
-      <div class="pt-2 d-flex justify-content-between">
-        <button class="btn_red border-0 me-2" id="plus_one">Plus One</button>
-        <button class="btn_green border-0" id="save">Save</button>
+  <body>
+    <div
+      class="container vh-100 w-100 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="card_custom">
+        <p class="mb-0" id="number">0</p>
+        <div class="pt-2 d-flex justify-content-between">
+          <button class="btn_red border-0 me-2" id="plus_one">Plus One</button>
+          <button class="btn_green border-0" id="save">Save</button>
+        </div>
+        <div class="py-3 fw-bold" id="arr_value"></div>
       </div>
-      <div class="py-3 fw-bold" id="arr_value"></div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
-  <script>
-    const getnumber = document.getElementById("number");
-    const addOneButton = document.getElementById("plus_one");
-    const getSave = document.getElementById("save");
-    const getArrValue = document.getElementById("arr_value");
+    <script>
+      const getnumber = document.getElementById("number");
+      const addOneButton = document.getElementById("plus_one");
+      const getSave = document.getElementById("save");
+      const getArrValue = document.getElementById("arr_value");
 
-    let count = 0;
-    const arr = [];
+      let count = 0;
+      const arr = [];
 
-    addOneButton.addEventListener("click", function () {
-      if (count < 10) {
+      addOneButton.addEventListener("click", function () {
+        // if (count < 10) {
         count += 1;
-      } else {
-        addOneButton.classList.add("disabled-btn");
-      }
-      getnumber.innerHTML = count;
-    });
+        // } else {
+        //   addOneButton.classList.add("disabled-btn");
+        // }
+        getnumber.innerHTML = count;
+      });
 
-    getSave.addEventListener("click", function () {
-      if (count > 0) {
-        arr.push(count);
-        getArrValue.innerHTML = arr.map((item) => `<span> ${item} </span> `);
-        getnumber.innerHTML = 0;
-        count = 0;
-      }
-    });
-  </script>
-</body>
-
+      getSave.addEventListener("click", function () {
+        if (count > 0) {
+          arr.push(count);
+          console.log(arr, "arr");
+          getArrValue.innerHTML = arr.map((item) => `<span> ${item} </span> `);
+          getnumber.innerHTML = 0;
+          count = 0;
+        }
+      });
+    </script>
+  </body>
 </html>

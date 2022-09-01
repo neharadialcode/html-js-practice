@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.css"
+    />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .container {
+        max-height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+      }
+      .panel {
+        scroll-snap-align: start;
+        height: 100vh;
+      }
+      .red {
+        background-color: #cf3535;
+        background-image: none;
+      }
+      .panel p {
+        font-size: 32px;
+      }
+      .blue_box {
+        width: 400px;
+        height: 400px;
+        background: blue;
+        border-radius: 10px;
+      }
+      .circle {
+        width: 400px;
+        height: 400px;
+        background: green;
+        border-radius: 50%;
+      }
+      .display_block {
+        display: flex !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="panel blue">
+        <h1>Pair with CSS Scroll Snapping</h1>
+      </section>
+      <section class="panel orange display_block">
+        <div class="blue_box"></div>
+      </section>
+      <section class="panel red">
+        <div class="circle"></div>
+      </section>
+      <section class="panel blue yoyo">
+        <p class="para">Yoyo Text!</p>
+      </section>
+    </div>
+
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.defaults({
+        toggleActions: "restart pause resume pause",
+        scroller: ".container",
+      });
+      // gsap.to(".orange p", {
+      //   scrollTrigger: ".orange",
+      //   duration: 2,
+      //   rotation: 360,
+      // });
+      // gsap.to(".red", {
+      //   scrollTrigger: {
+      //     trigger: ".red",
+      //     toggleActions: "restart pause reverse pause",
+      //   },
+      //   duration: 1,
+      //   backgroundColor: "#FFA500",
+      //   ease: "none",
+      // });
+      // gsap.to(".yoyo p", {
+      //   scrollTrigger: ".yoyo",
+      //   scale: 2,
+      //   repeat: -1,
+      //   yoyo: true,
+      //   ease: "power2",
+      // });
+
+      let eight = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".display_block",
+          start: "top top",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      eight.fromTo(
+        ".blue_box",
+        { xPercent: -100, rotate: "0deg" },
+        {
+          xPercent: 100,
+          rotate: "360deg",
+        }
+      );
+      let first = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".red",
+          start: "top top",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      first.fromTo(
+        ".circle",
+        { xPercent: -100, rotate: "0deg" },
+        {
+          xPercent: 100,
+          rotate: "360deg",
+        }
+      );
+      let third = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".yoyo",
+          start: "top 50%",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      third.fromTo(
+        ".para",
+        { scale: 0 },
+        {
+          scale: 2,
+        }
+      );
+    </script>
+  </body>
+</html>

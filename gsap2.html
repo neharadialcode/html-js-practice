@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .container {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+      }
+      div {
+        height: 100vh;
+        scroll-snap-align: center;
+      }
+      .item1 {
+        background-color: blue;
+        font-size: 5rem;
+      }
+      .item2 {
+        background-color: yellow;
+        font-size: 5rem;
+      }
+      .item3 {
+        background-color: red;
+        font-size: 5rem;
+      }
+      .bottom_cloud_left {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(14, 167, 206, 0.671);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1">Hello World</div>
+      <div class="item2">
+        <div class="bottom_cloud_left"></div>
+        Hello World
+      </div>
+      <div class="item3">Hello World</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+      const scrollContainer = document.querySelector(".container");
+      // don't forget to add "scroll-behavior: smooth;" to the .container CSS
+      scrollContainer.onwheel = function (event) {
+        // use scrollBy using the deltaY just as a direction
+        // the exact value is not important because of "scroll-snap-type: y mandatory;"
+        scrollContainer.scrollBy(0, event.deltaY);
+        // this will stop the original scroll event.
+        return false;
+      };
+    </script>
+    <script>
+      let cloud1 = gsap.timeline({
+        scrollTrigger: {
+          scroller: ".container",
+          trigger: ".item2",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          markers: true,
+        },
+      });
+      cloud1.to(".bottom_cloud_left", {
+        xPercent: -100,
+      });
+    </script>
+  </body>
+</html>
