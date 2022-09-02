@@ -1,93 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>calculation</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon"
-    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>calculation</title>
-</head>
-
-<body class="">
-  <div class="container d-flex flex-column justify-content-center align-items-center w-100 vh-100">
-    <div class="card_box bg-light-pink">
-      <p id="number">answer</p>
-      <div>
-        <input id="first_number" placeholder="first number" type="number" value="" />
-      </div>
-      <div class="mt-2">
-        <input placeholder="second number" id="second_number" type="number" value="" />
-      </div>
-      <div class="d-flex justify-content-center mt-4">
-        <span id="plus">+</span>
-        <span id="minus">-</span>
-        <span id="multiply">*</span>
-        <span id="devide" class="fs-30">/</span>
-        <span id="clear" class="fs-20">clear</span>
+  <body class="">
+    <div
+      class="container d-flex flex-column justify-content-center align-items-center w-100 vh-100"
+    >
+      <div class="card_box bg-light-pink">
+        <p id="number">answer</p>
+        <div>
+          <input
+            id="first_number"
+            placeholder="first number"
+            type="number"
+            value=""
+          />
+        </div>
+        <div class="mt-2">
+          <input
+            placeholder="second number"
+            id="second_number"
+            type="number"
+            value=""
+          />
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+          <span id="plus">+</span>
+          <span id="minus">-</span>
+          <span id="multiply">*</span>
+          <span id="devide" class="fs-30">/</span>
+          <span id="clear" class="fs-20">clear</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
-  <script>
-    const getnumber = document.getElementById("number");
-    let firstNumber = document.getElementById("first_number");
-    let secondNumber = document.getElementById("second_number");
-    const plus = document.getElementById("plus");
-    const minus = document.getElementById("minus");
-    const multiply = document.getElementById("multiply");
-    const devide = document.getElementById("devide");
-    const clear = document.getElementById("clear");
-    let one;
-    let two;
-    let answer;
-    firstNumber.addEventListener("change", function () {
-      one = Number(firstNumber.value);
-      console.log(one, "two");
-      console.log(firstNumber, "firstNumber");
-    });
-    secondNumber.addEventListener("change", function () {
-      two = Number(secondNumber.value);
-    });
-    plus.addEventListener("click", function () {
-      console.log(one, two);
-      if (one && one > 0 && two && two > 0) {
-        answer = one + two;
-        getnumber.innerHTML = answer;
-      }
-    });
-    minus.addEventListener("click", function () {
-      if (one && one > 0 && two && two > 0) {
-        answer = one - two;
-        getnumber.innerHTML = answer;
-      }
-    });
-    multiply.addEventListener("click", function () {
-      if (one && one > 0 && two && two > 0) {
-        answer = one * two;
-        getnumber.innerHTML = answer;
-      }
-    });
-    devide.addEventListener("click", function () {
-      if (one && one > 0 && two && two > 0) {
-        answer = one / two;
-        getnumber.innerHTML = answer;
-      }
-    });
-    clear.addEventListener("click", function () {
-      getnumber.innerHTML = "answer";
-      firstNumber.value = "";
-      secondNumber.value = "";
-    });
-  </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const getnumber = document.getElementById("number");
+      let firstNumber = document.getElementById("first_number");
+      let secondNumber = document.getElementById("second_number");
+      const plus = document.getElementById("plus");
+      const minus = document.getElementById("minus");
+      const multiply = document.getElementById("multiply");
+      const devide = document.getElementById("devide");
+      const clear = document.getElementById("clear");
+      let one;
+      let two;
+      let answer;
+      firstNumber.addEventListener("change", function () {
+        one = Number(firstNumber.value);
+        console.log(one, "two");
+        console.log(firstNumber, "firstNumber");
+      });
+      secondNumber.addEventListener("change", function () {
+        two = Number(secondNumber.value);
+      });
+      plus.addEventListener("click", function () {
+        console.log(one, two);
+        if (one && one > 0 && two && two > 0) {
+          answer = one + two;
+          getnumber.innerHTML = answer;
+        }
+      });
+      minus.addEventListener("click", function () {
+        if (one && one > 0 && two && two > 0) {
+          answer = one - two;
+          getnumber.innerHTML = answer;
+        }
+      });
+      multiply.addEventListener("click", function () {
+        if (one && one > 0 && two && two > 0) {
+          answer = one * two;
+          getnumber.innerHTML = answer;
+        }
+      });
+      devide.addEventListener("click", function () {
+        if (one && one > 0 && two && two > 0) {
+          answer = one / two;
+          getnumber.innerHTML = answer;
+        }
+      });
+      clear.addEventListener("click", function () {
+        getnumber.innerHTML = "answer";
+        firstNumber.value = "";
+        secondNumber.value = "";
+      });
+    </script>
+  </body>
 </html>

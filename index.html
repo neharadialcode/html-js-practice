@@ -1,76 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+      href="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.css"
     />
-    <link
-      rel="icon"
-      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
-    />
-    <title>Hello, world!</title>
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .container {
+        max-height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+      }
+      .panel {
+        scroll-snap-align: start;
+        height: 100vh;
+      }
+      .red {
+        background-color: #cf3535;
+        background-image: none;
+      }
+      .panel p {
+        font-size: 32px;
+      }
+      .blue_box {
+        width: 400px;
+        height: 400px;
+        background: blue;
+        border-radius: 10px;
+      }
+      .circle {
+        width: 400px;
+        height: 400px;
+        background: green;
+        border-radius: 50%;
+      }
+      .display_block {
+        display: flex !important;
+      }
+    </style>
   </head>
-
   <body>
-    <div
-      class="vh-100 bg-danger w-100 d-flex flex-column justify-content-center align-items-center"
-    >
-      <h1 id="get-number">0</h1>
-      <button id="add-one" class="btn-primary px-5 py-3">Add One</button>
+    <div class="container">
+      <section class="panel blue">
+        <h1>Pair with CSS Scroll Snapping</h1>
+      </section>
+      <section class="panel orange display_block">
+        <div class="blue_box"></div>
+      </section>
+      <section class="panel red">
+        <div class="circle"></div>
+      </section>
+      <section class="panel blue yoyo">
+        <p class="para">Yoyo Text!</p>
+      </section>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>
     <script>
-      // HERE WE GET ELEMENT  \
-      const getnumber = document.getElementById("get-number");
-      const addOneButton = document.getElementById("add-one");
-      //    DECLARE VARIABLE AND ASIGNED
-      let count;
-      console.log(count);
-      count = 0;
-      console.log(count);
-      //   CLICK ON BUTTON ADD ONE
-      addOneButton.addEventListener("click", function () {
-        count = count + 1;
-        getnumber.innerHTML = count;
-        console.log("Clicked", count);
-        console.log(getnumber.innerHTML);
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.defaults({
+        toggleActions: "restart pause resume pause",
+        scroller: ".container",
       });
-      // GLOBAL DECLARATION
-      //   function get() {
-      //     var number = 0;
-      //     let newnum = 0;
-      //     const numbyconst = 0;
-      //   }
-      //   get();
-      //   var number = 0;
-      //   let newnum = 0;
-      //   const numbyconst = 0;
-      //   console.log(number, "number");
-      //   console.log(newnum, "newnum");
-      //   console.log(numbyconst);
-      //   newnum = 1;
-      //   number = 3;
-      //   console.log(number, "number");
-      //   console.log(newnum, "newnum");
-      //
+      // gsap.to(".orange p", {
+      //   scrollTrigger: ".orange",
+      //   duration: 2,
+      //   rotation: 360,
+      // });
+      // gsap.to(".red", {
+      //   scrollTrigger: {
+      //     trigger: ".red",
+      //     toggleActions: "restart pause reverse pause",
+      //   },
+      //   duration: 1,
+      //   backgroundColor: "#FFA500",
+      //   ease: "none",
+      // });
+      // gsap.to(".yoyo p", {
+      //   scrollTrigger: ".yoyo",
+      //   scale: 2,
+      //   repeat: -1,
+      //   yoyo: true,
+      //   ease: "power2",
+      // });
+
+      let eight = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".display_block",
+          start: "top top",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      eight.fromTo(
+        ".blue_box",
+        { xPercent: -100, rotate: "0deg" },
+        {
+          xPercent: 100,
+          rotate: "360deg",
+        }
+      );
+      let first = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".red",
+          start: "top top",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      first.fromTo(
+        ".circle",
+        { xPercent: -100, rotate: "0deg" },
+        {
+          xPercent: 100,
+          rotate: "360deg",
+        }
+      );
+      let third = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".yoyo",
+          start: "top 50%",
+          end: "bottom center",
+          markers: true,
+          scrub: 1,
+        },
+      });
+      third.fromTo(
+        ".para",
+        { scale: 0 },
+        {
+          scale: 2,
+        }
+      );
     </script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
