@@ -246,7 +246,7 @@ input:focus {
 }
 
 .blue_btn {
-  background: linear-gradient(97.42deg, #128DFF -4.95%, #1444EF 109.04%);
+  background: linear-gradient(97.42deg, #128dff -4.95%, #1444ef 109.04%);
   border-radius: 4px;
   color: white;
   border: 1px solid transparent;
@@ -261,7 +261,7 @@ input:focus {
 .border_btn {
   background: transparent;
   border-radius: 4px;
-  color: #1444EF;
+  color: #1444ef;
   border: 1px solid transparent;
   padding: 8px 30px;
   min-width: 150px;
@@ -275,16 +275,15 @@ input:focus {
 
 .gradient_border {
   border: 3px solid;
-  border-image-source: url('./border_img.png');
+  border-image-source: url("./border_img.png");
   border-image-repeat: round;
   border-image-slice: 3;
 }
 
-@media (max-width:767.98px) {
+@media (max-width: 767.98px) {
   .blue_btn {
     min-width: 100%;
   }
-
   .border_btn {
     min-width: 100%;
   }
