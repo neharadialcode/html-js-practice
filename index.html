@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.css"
     />
+
     <title>Document</title>
     <style>
       html,
@@ -50,18 +51,33 @@
       .overflow_hidden {
         overflow: hidden;
       }
+      .d-flex {
+        display: flex;
+      }
+      .mw_400 {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .w_100 {
+        width: 100%;
+      }
+      .justify-content-evenly {
+        justify-content: space-evenly;
+      }
     </style>
   </head>
-  <body class="overflow_hidden">
+  <body class="">
     <div class="container">
-      <section class="panel blue">
-        <div class="overflow_hidden">
-          <h1 class="para_hero">Pair with CSS Scroll Snapping</h1>
+      <section class="panel blue overflow_hidden w_100">
+        <div>
           <p class="heading_hero">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
             praesentium iste, provident repudiandae ipsa porro expedita quis
             cupiditate necessitatibus excepturi dolore alias magni pariatur,
             tenetur dolores saepe tempore doloribus iure.
+          </p>
+          <p class="para_hero">
+            <img class="w_100" src="./003.png" alt="003.png" />
           </p>
         </div>
       </section>
@@ -79,6 +95,7 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
     <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>
+
     <script>
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.defaults({
@@ -113,9 +130,10 @@
         scrollTrigger: {
           trigger: ".display_block",
           start: "top top",
-          end: "bottom center",
+          end: "bottom bottom",
           markers: true,
-          scrub: 1,
+          // scrub: 1,
+          toggleActions: "restart none none reverse",
         },
       });
       eight.fromTo(
