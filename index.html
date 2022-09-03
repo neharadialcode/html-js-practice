@@ -47,12 +47,23 @@
       .display_block {
         display: flex !important;
       }
+      .overflow_hidden {
+        overflow: hidden;
+      }
     </style>
   </head>
-  <body>
+  <body class="overflow_hidden">
     <div class="container">
       <section class="panel blue">
-        <h1>Pair with CSS Scroll Snapping</h1>
+        <div class="overflow_hidden">
+          <h1 class="para_hero">Pair with CSS Scroll Snapping</h1>
+          <p class="heading_hero">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+            praesentium iste, provident repudiandae ipsa porro expedita quis
+            cupiditate necessitatibus excepturi dolore alias magni pariatur,
+            tenetur dolores saepe tempore doloribus iure.
+          </p>
+        </div>
       </section>
       <section class="panel orange display_block">
         <div class="blue_box"></div>
@@ -74,10 +85,12 @@
         toggleActions: "restart pause resume pause",
         scroller: ".container",
       });
-      // gsap.to(".orange p", {
-      //   scrollTrigger: ".orange",
+      // gsap.to(".blue_box", {
+      //   start: "top 20%",
       //   duration: 2,
       //   rotation: 360,
+      //   x: "-100px",
+      //   toggleActions: "start none none reverse",
       // });
       // gsap.to(".red", {
       //   scrollTrigger: {
@@ -130,14 +143,13 @@
           rotate: "360deg",
         }
       );
+
       let third = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".yoyo",
-          start: "top 50%",
-          end: "bottom center",
-          markers: true,
-          scrub: 1,
-        },
+        trigger: ".yoyo",
+        start: "top 50%",
+        end: "bottom center",
+        markers: true,
+        scrub: 1,
       });
       third.fromTo(
         ".para",
@@ -146,6 +158,51 @@
           scale: 2,
         }
       );
+      let hero = gsap.timeline();
+      gsap.set(".home_main_navbar", {
+        autoAlpha: 0,
+        yPercent: -100,
+      });
+      hero
+        .from(".heading_hero", {
+          xPercent: -100,
+          autoAlpha: 0,
+          ease: "back(2)",
+          duration: 1,
+          delay: 2,
+        })
+        .from(
+          ".para_hero",
+          {
+            xPercent: 100,
+            autoAlpha: 0,
+            ease: "back(2)",
+            duration: 1,
+          },
+          "-=.8"
+        )
+        .fromTo(
+          ".city_img",
+          {
+            autoAlpha: 0,
+            xPercent: 20,
+          },
+          {
+            autoAlpha: 0.3,
+            xPercent: 0,
+          },
+          "<"
+        )
+        .from(
+          ".scroll_down",
+          {
+            yPercent: -50,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: "power.Out()",
+          },
+          "-=.2"
+        );
     </script>
   </body>
 </html>
