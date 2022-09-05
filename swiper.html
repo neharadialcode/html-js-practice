@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bottom_cloud_left {
+            height: 400px;
+            width: 400px;
+            background-color: rgba(14, 167, 206, 0.671);
+        }
+
+        .bg_black {
+            background-color: black;
+        }
+
+        .swiper-slide {
+            background-color: black;
+        }
+
+        .color_white {
+            color: white;
+        }
+
+        .panel {
+            scroll-snap-align: start;
+            height: 100vh;
+        }
+
+        .red {
+            background-color: #cf3535;
+            background-image: none;
+        }
+
+        .panel p {
+            font-size: 32px;
+        }
+
+        .blue_box {
+            width: 400px;
+            height: 400px;
+            background: blue;
+            border-radius: 10px;
+        }
+
+        .circle {
+            width: 400px;
+            height: 400px;
+            background: green;
+            border-radius: 50%;
+        }
+
+        .display_block {
+            display: flex !important;
+        }
+
+        /* .overflow_hidden {
+        overflow: hidden;
+        } */
+        .d-flex {
+            display: flex;
+        }
+
+        .mw_400 {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .w_100 {
+            width: 100%;
+        }
+
+        .justify-content-evenly {
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body class="bg_black color_white">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="panel blue overflow_hidden w_100 container">
+                    <div>
+                        <p class="heading_hero">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                            praesentium iste, provident repudiandae ipsa porro expedita quis
+                            cupiditate necessitatibus excepturi dolore alias magni pariatur,
+                            tenetur dolores saepe tempore doloribus iure.
+                        </p>
+                        <p class="para_hero">
+                            <img class="w_100" src="./003.png" alt="003.png" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide container">
+                <div class="row justify-content-between">
+                    <div class="row justify-content-between">
+                        <div class="col-12">
+                            <p class="heading_hero3 pb-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                                praesentium iste, provident repudiandae ipsa porro expedita quis
+                                cupiditate necessitatibus excepturi dolore alias magni pariatur,
+                                tenetur dolores saepe tempore doloribus iure.
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <p class="heading_hero1">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                                praesentium iste, provident repudiandae ipsa porro expedita quis
+                                cupiditate necessitatibus excepturi dolore alias magni pariatur,
+                                tenetur dolores saepe tempore doloribus iure.
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <p class="heading_hero2">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                                praesentium iste, provident repudiandae ipsa porro expedita quis
+                                cupiditate necessitatibus excepturi dolore alias magni pariatur,
+                                tenetur dolores saepe tempore doloribus iure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="bottom_cloud_left"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="panel red">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="panel blue yoyo">
+                    <p class="para">Yoyo Text!</p>
+                    <a href="./scrollsnap.html">next</a>
+                </div>
+            </div>
+            <!-- <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div> -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <!-- Swiper JS -->
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            speed: 2000,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            }
+        });
+
+        swiper.on("slideChange", function (obj) {
+            console.log("slide changed", obj);
+            if (obj.activeIndex === 1) {
+                boxAnimeStart1();
+            } else if (obj.activeIndex === 2) {
+                // run this code
+            }
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.defaults({
+            toggleActions: "start none none reverse"
+        });
+
+
+
+        function boxAnimeStart1() {
+            let second = gsap.timeline();
+            second.from(".heading_hero1", {
+                    xPercent: -100,
+                    autoAlpha: 0,
+                    ease: "back(2)",
+                    duration: 1,
+                    delay: 1
+                })
+                .from(".heading_hero2", {
+                    xPercent: 100,
+                    autoAlpha: 0,
+                    ease: "back(2)",
+                    duration: 1,
+                })
+                .from(".heading_hero3", {
+                    yPercent: -100,
+                    autoAlpha: 0,
+                    ease: "back(2)",
+                    duration: 1,
+                })
+        }
+        let hero = gsap.timeline();
+        hero
+            .from(".heading_hero", {
+                xPercent: -100,
+                autoAlpha: 0,
+                ease: "back(2)",
+                duration: 1,
+                delay: .5,
+            })
+            .from(
+                ".para_hero", {
+                    xPercent: 100,
+                    autoAlpha: 0,
+                    ease: "back(2)",
+                    duration: 1,
+                },
+                "-=.8"
+            )
+    </script>
+</body>
+
+</html>
