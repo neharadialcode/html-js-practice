@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"
+      integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .section-1 {
+        background-color: aqua;
+      }
+      .section-2 {
+        background-color: rgb(75, 10, 161);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+      }
+      .section-3 {
+        background-color: rgb(247, 90, 0);
+      }
+
+      .box-1 {
+        width: 400px;
+        height: 400px;
+        background: red;
+        border-radius: 10px;
+      }
+      .box-2 {
+        width: 400px;
+        height: 400px;
+        background: green;
+        border-radius: 50%;
+      }
+      p {
+        color: white;
+      }
+    </style>
+    <script>
+      $(function () {
+        $.scrollify({
+          section: ".example-classname",
+          after: function (obj) {
+            console.log("after", obj);
+          },
+          before: function (obj) {
+            console.log("before", obj);
+            if (obj === 0) {
+              indexZeroAnimation(obj);
+            } else if (obj === 1) {
+              indexOneAnimation(obj);
+            }
+          },
+        });
+      });
+
+      function indexZeroAnimation(obj) {
+        if (obj === 0) {
+          gsap.from(".box-1", {
+            autoAlpha: 1,
+            xPercent: 0,
+            duration: 0.5,
+          });
+        }
+      }
+
+      function indexOneAnimation(obj) {
+        if (obj === 1) {
+          gsap.from(".box-2", {
+            autoAlpha: 0,
+            x: -500,
+            duration: 0.8,
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="example-classname section-1">
+      <div class="box-1"></div>
+    </div>
+    <div class="example-classname section-2">
+      <div class="box-2"></div>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+      <p style="max-width: 400px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        velit ducimus accusantium ipsa iusto amet animi quo eaque praesentium
+        maxime, deleniti sunt quasi quibusdam, neque fugit cupiditate magnam,
+        explicabo repudiandae.
+      </p>
+    </div>
+    <div class="example-classname section-3"></div>
+  </body>
+</html>
