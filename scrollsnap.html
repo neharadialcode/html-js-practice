@@ -17,9 +17,16 @@
       href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoJbBeeut0CeFnBgs6XO1_FxSkgqyIcI9Lw&usqp=CAU"
     />
     <title>Hello, world!</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.10/fullpage.css"
+      integrity="sha512-t+t6zJIt91gRlTfGo/bOo34WpqUOYwGuPmMtOb7XHPCjGJXMtkCzenfNh5t+dBVChlvjMEa26jZsq85zcXVcRQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <style>
@@ -33,7 +40,9 @@
     h1 {
       font-size: 3em;
     }
-
+    p {
+      color: white;
+    }
     section:nth-child(1) {
       background-color: black;
     }
@@ -61,6 +70,9 @@
       height: 400px;
       background: green;
       border-radius: 50%;
+    }
+    p {
+      color: white;
     }
   </style>
   <body>
@@ -103,14 +115,70 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-    <script src="./gsap.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script> -->
+    <!-- <script src="./gsap.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.10/fullpage.min.js"
+      integrity="sha512-Xaje5GN/tSuxnQNdbOMppDPWWpPMN0WGfay1St6ckxBqnm3hB66iVqBbLXmujadwsH9KOUVHJZ3GR9QpAEF1GQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+    <script>
+      $(document).ready(function () {
+        new fullpage("#fullpage", {
+          //options here
+          licenseKey: "YOUR_KEY_HERE",
+          autoScrolling: true,
+          scrollHorizontally: true,
+          onSlideLeave: function (
+            section,
+            origin,
+            destination,
+            direction,
+            trigger
+          ) {
+            console.log(section, origin, destination, direction, trigger);
+          },
+        });
+      });
+
+      function indexZeroAnimation() {
+        if (currentIndex === 0) {
+          gsap.from(first, {
+            autoAlpha: 1,
+            xPercent: 0,
+            duration: 0.5,
+          });
+          gsap.from(first1, {
+            xPercent: 0,
+            autoAlpha: 1,
+            ease: "back(2)",
+            duration: 1,
+          });
+        }
+      }
+
+      function indexOneAnimation() {
+        if (currentIndex === 1) {
+          gsap.to(seccond, {
+            autoAlpha: 0,
+            y: -200,
+            duration: 0.5,
+          });
+          gsap.to(seccondSection, {
+            scale: 1,
+            ease: Power1,
+            duration: 0.5,
+          });
+        }
+      }
+    </script>
   </body>
 </html>
