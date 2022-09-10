@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cards_animation {
+        -webkit-animation: cards_animationn 5s infinite;
+        animation: cards_animationn 5s infinite;
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+        width: 350px;
+        height: 450px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        opacity: 0;
+      }
+      .cards_animation2 {
+        -webkit-animation: cards_animationn2 5s infinite;
+        animation: cards_animationn2 5s infinite;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        width: 350px;
+        height: 450px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        opacity: 0;
+      }
+      .cards_rotation_animation {
+        width: 350px;
+        position: relative;
+        height: 450px;
+        opacity: 1;
+      }
+      .card_change_animation {
+        -webkit-animation: img_change 20s ease-in-out infinite;
+        animation: img_change 20s ease-in-out infinite;
+        width: 350px;
+        height: 450px;
+      }
+      .card_change_animation2 {
+        -webkit-animation: img_change2 24s infinite;
+        animation: img_change2 24s infinite;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        width: 350px;
+        height: 450px;
+      }
+      @keyframes img_change {
+        /* YELLOW  */
+        0% {
+          background: url("./10.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        /* YELLOW  */
+        65% {
+          background: url("./8.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        /* RED */
+        100% {
+          background: url("./9.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+      @keyframes img_change2 {
+        0% {
+          background: url("./9.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        /* YELLOW  */
+        65% {
+          background: url("./9.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        /* RED */
+        100% {
+          background: url("./10.png");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+      @keyframes cards_animationn {
+        0% {
+          -webkit-transform: translateX(-100px) rotate(0deg) scale(1);
+          transform: translateX(-100px) rotate(0deg) scale(1);
+          opacity: 0;
+        }
+        20% {
+          -webkit-transform: translateX(-100px) rotate(0deg) scale(1);
+          transform: translateX(-100px) rotate(0deg) scale(1);
+          opacity: 0;
+        }
+        40% {
+          -webkit-transform: translateX(-50px) rotate(5deg) scale(0.9);
+          transform: translateX(-50px) rotate(5deg) scale(0.9);
+          opacity: 1;
+        }
+        60% {
+          -webkit-transform: translateX(-50px) rotate(5deg) scale(0.9);
+          transform: translateX(-50px) rotate(5deg) scale(0.9);
+          opacity: 1;
+        }
+        80% {
+          -webkit-transform: translateY(-40px) rotate(20deg) scale(0.9);
+          transform: translateY(-40px) rotate(20deg) scale(0.9);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(-40px) rotate(20deg) scale(0.9);
+          transform: translateY(-40px) rotate(20deg) scale(0.9);
+          opacity: 0;
+        }
+      }
+      @keyframes cards_animationn2 {
+        0% {
+          -webkit-transform: translateX(100px) rotate(0deg) scale(1);
+          transform: translateX(100px) rotate(0deg) scale(1);
+          opacity: 0;
+        }
+        20% {
+          -webkit-transform: translateX(100px) rotate(0deg) scale(1);
+          transform: translateX(100px) rotate(0deg) scale(1);
+          opacity: 0;
+        }
+        40% {
+          -webkit-transform: translateX(50px) rotate(-5deg) scale(0.9);
+          transform: translateX(50px) rotate(-5deg) scale(0.9);
+          opacity: 1;
+        }
+        80% {
+          -webkit-transform: translateX(50px) rotate(-5deg) scale(0.9);
+          transform: translateX(50px) rotate(-5deg) scale(0.9);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: translateY(-40px) rotate(-20deg) scale(0.9);
+          transform: translateY(-40px) rotate(-20deg) scale(0.9);
+          opacity: 0;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .cards_animation,
+        .cards_rotation_animation,
+        .cards_animation2,
+        .card_change_animation2,
+        .card_change_animation {
+          width: 250px;
+          height: 330px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards_rotation_animation">
+      <div class="cards_animation">
+        <div class="card_change_animation"></div>
+      </div>
+      <div class="cards_animation2">
+        <div class="card_change_animation2"></div>
+      </div>
+    </div>
+  </body>
+</html>
