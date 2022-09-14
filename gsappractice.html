@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <style>
+    .sec01 {
+      position: absolute;
+      top: 0;
+      height: 0;
+      width: 3px;
+      background-color: green;
+    }
+
+    .sec02 {
+      position: absolute;
+      bottom: 0;
+      height: 3.5px;
+      width: 0%;
+      background-color: blue;
+    }
+    .sec03 {
+      position: absolute;
+      top: 0;
+      height: 0;
+      right: 0;
+      width: 3px;
+      background-color: green;
+    }
+
+    .sec04 {
+      position: absolute;
+      bottom: 0;
+      height: 3.5px;
+      width: 0%;
+      background-color: blue;
+      right: 0;
+    }
+    .line_parent {
+      height: 250px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <p class="vh-100 d-flex flex-column justify-content-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+          repudiandae consequuntur vel itaque incidunt molestiae nesciunt minima
+          ex ullam dolore neque quia quod optio, quis facilis! Inventore minima
+          libero mollitia.
+        </p>
+        <div
+          class="col-4 section_1 vh-100 d-flex flex-column justify-content-center text1"
+        >
+          <div class="position-relative line_parent">
+            <span class="sec01"></span>
+            <span class="sec02"></span>
+          </div>
+        </div>
+        <div
+          class="col-4 section_1 vh-100 d-flex flex-column justify-content-center text1"
+        >
+          <div class="position-relative line_parent">
+            <span class="sec03"></span>
+            <span class="sec04"></span>
+          </div>
+        </div>
+        <p class="vh-100 d-flex flex-column justify-content-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+          repudiandae consequuntur vel itaque incidunt molestiae nesciunt minima
+          ex ullam dolore neque quia quod optio, quis facilis! Inventore minima
+          libero mollitia.
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.defaults({
+        toggleActions: "play reset play reset",
+        markers: true,
+      });
+
+      let second = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section_1",
+          start: "top 20%",
+          end: "bottom center",
+          scrub: 1,
+          immediateRender: false,
+        },
+      });
+      second
+        .to(".sec01", {
+          height: "250px",
+        })
+        .to(".sec02", {
+          width: "40px",
+        });
+      let third = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section_1",
+          start: "top 20%",
+          end: "bottom center",
+          scrub: 1,
+          immediateRender: false,
+        },
+      });
+      third
+        .to(".sec03", {
+          height: "250px",
+        })
+        .to(".sec04", {
+          width: "40px",
+        });
+    </script>
+  </body>
+</html>
