@@ -67,6 +67,28 @@
             <span class="sec02"></span>
           </div>
         </div>
+
+        <div class="text-primary">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At non
+          deleniti quod dolore, nesciunt veritatis ea nisi, placeat velit quasi
+          corrupti atque doloremque qui eaque aperiam consectetur excepturi
+          aliquam ullam!
+        </div>
+        <section
+          class="vh-100 bg-primary parent d-flex flex-column justify-content-center"
+        >
+          <h1 class="heading">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab ad
+            sapiente autem, animi, maiores recusandae commodi esse unde, ducimus
+            iste ut similique quis ullam vero reprehenderit? Accusamus soluta
+            unde quibusdam?111111111111111111111111111111111111111111
+          </h1>
+
+          <p class="text1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex iste
+            necessitatibus magnam quasi repellendus incidunt quod vel? Iure
+          </p>
+        </section>
         <div
           class="col-4 section_1 vh-100 d-flex flex-column justify-content-center text1"
         >
@@ -96,7 +118,7 @@
 
       ScrollTrigger.defaults({
         toggleActions: "play reset play reset",
-        markers: true,
+        // markers: true,
       });
 
       let second = gsap.timeline({
@@ -131,6 +153,94 @@
         .to(".sec04", {
           width: "40px",
         });
+    </script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.matchMedia({
+        // large
+        "(min-width: 960px)": function () {
+          ScrollTrigger.defaults({
+            toggleActions: "play reset play reset",
+            // markers: true,
+          });
+
+          // let second = gsap.timeline({
+          //   scrollTrigger: {
+          //     trigger: ".section_1",
+          //     start: "top 20%",
+          //     end: "bottom center",
+          //     scrub: 1,
+          //     immediateRender: false,
+          //   },
+          // });
+          // second
+          //   .to(".sec01", {
+          //     height: "250px",
+          //   })
+          //   .to(".sec02", {
+          //     width: "40px",
+          //   });
+          // let third = gsap.timeline({
+          //   scrollTrigger: {
+          //     trigger: ".section_1",
+          //     start: "top 20%",
+          //     end: "bottom center",
+          //     scrub: 1,
+          //     immediateRender: false,
+          //   },
+          // });
+          // third
+          //   .to(".sec03", {
+          //     height: "250px",
+          //   })
+          //   .to(".sec04", {
+          //     width: "40px",
+          //   });
+
+          let textMain = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".parent",
+              start: "top top",
+              end: "bottom center",
+              scrub: 1,
+              pin: true,
+              immediateRender: false,
+              markers: true,
+            },
+          });
+          textMain
+            .fromTo(
+              ".heading",
+              {
+                background: "red",
+              },
+              {
+                background: "green",
+              }
+            )
+            .to(".text1", {
+              color: "white",
+            });
+        },
+
+        // medium
+        "(min-width: 600px) and (max-width: 959px)": function () {
+          // The ScrollTriggers created inside these functions are segregated and get
+          // reverted/killed when the media query doesn't match anymore.
+        },
+
+        // small
+        "(max-width: 599px)": function () {
+          // The ScrollTriggers created inside these functions are segregated and get
+          // reverted/killed when the media query doesn't match anymore.
+        },
+
+        // all
+        all: function () {
+          // ScrollTriggers created here aren't associated with a particular media query,
+          // so they persist.
+        },
+      });
     </script>
   </body>
 </html>
